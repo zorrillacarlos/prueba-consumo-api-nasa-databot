@@ -18,9 +18,9 @@ import Cards from "../components/Cards.vue";
 
 export default {
   name: "Home",
-  components: { 
-    Cards 
-    },
+  components: {
+    Cards,
+  },
   data() {
     return {
       dataNasa: [],
@@ -31,16 +31,14 @@ export default {
   },
   methods: {
     async getNasaInfo() {
-      await axios({
+      const response = await axios({
         method: "GET",
         url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=00MpcQQ8jsIc7pY6ORQd2WJFII9Sn7XczchfzREm",
         headers: {
           key: "00MpcQQ8jsIc7pY6ORQd2WJFII9Sn7XczchfzREm",
         },
-      }).then((result) => {
-        this.dataNasa = result.data.photos;
-        console.log(this.dataNasa);
       });
+      this.dataNasa = response.data.photos;
     },
   },
 };
