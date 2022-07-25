@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <div class="header"></div>
+    <div class="header"></div>``
     <p class="rocket">🚀</p>
     <h1>Test Front-End Databot</h1>
     <h3 class="text-center">Víncula la API de la NASA 👇</h3>
