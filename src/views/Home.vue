@@ -26,18 +26,12 @@ export default {
       dataNasa: [],
     };
   },
-  async created() {
+  async mounted() {
     await this.getNasaInfo();
   },
   methods: {
     async getNasaInfo() {
-      const response = await axios({
-        method: "GET",
-        url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=00MpcQQ8jsIc7pY6ORQd2WJFII9Sn7XczchfzREm",
-        headers: {
-          key: "00MpcQQ8jsIc7pY6ORQd2WJFII9Sn7XczchfzREm",
-        },
-      });
+      const response = await axios.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=00MpcQQ8jsIc7pY6ORQd2WJFII9Sn7XczchfzREm");
       this.dataNasa = response.data.photos;
     },
   },
